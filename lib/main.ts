@@ -57,6 +57,11 @@ const getReleaseAsset = async () => {
         tar.extract(outputPath, {
           strip: 1,
         }),
+        (err) => {
+          if (err) {
+            throw err
+          }
+        },
       )
       finished(stream, (err) => {
         if (err) throw err
