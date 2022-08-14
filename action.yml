@@ -1,0 +1,6 @@
+name: 'themeforest-release'
+description: 'A Github action to automate the publishing of Themeforest items (based on releases).'
+author: 'EXILL-SUARL'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
