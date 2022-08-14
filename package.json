@@ -1,6 +1,6 @@
 {
   "name": "themeforest-release",
-  "version": "0.1.1-alpha.0",
+  "version": "0.1.1-alpha.1",
   "private": false,
   "description": "A Github action to automate the publishing of Themeforest items (based on releases).",
   "main": "lib/main.ts",
