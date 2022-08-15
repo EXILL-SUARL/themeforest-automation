@@ -1026,13 +1026,6 @@
     semver "^7.3.7"
     tsutils "^3.21.0"
 
-"@typescript-eslint/experimental-utils@^5.0.0":
-  version "5.33.0"
-  resolved "https://registry.npmjs.org/@typescript-eslint/experimental-utils/-/experimental-utils-5.33.0.tgz"
-  integrity sha512-NvRsNe+T90QrSVlgdV9/U8/chfqGmShvKUE7hWZTAUUCF6hZty/R+eMPVGldKcUDq7uRQaK6+V8gv5OwVDqC+g==
-  dependencies:
-    "@typescript-eslint/utils" "5.33.0"
-
 "@typescript-eslint/parser@^5.1.0", "@typescript-eslint/parser@^5.33.0":
   version "5.33.0"
   resolved "https://registry.npmjs.org/@typescript-eslint/parser/-/parser-5.33.0.tgz"
@@ -1078,7 +1071,7 @@
     semver "^7.3.7"
     tsutils "^3.21.0"
 
-"@typescript-eslint/utils@5.33.0":
+"@typescript-eslint/utils@5.33.0", "@typescript-eslint/utils@^5.10.0":
   version "5.33.0"
   resolved "https://registry.npmjs.org/@typescript-eslint/utils/-/utils-5.33.0.tgz"
   integrity sha512-JxOAnXt9oZjXLIiXb5ZIcZXiwVHCkqZgof0O8KPgz7C7y0HS42gi75PdPlqh1Tf109M0fyUw45Ao6JLo7S5AHw==
@@ -2266,12 +2259,12 @@ eslint-plugin-import@^2.25.2:
     resolve "^1.22.0"
     tsconfig-paths "^3.14.1"
 
-eslint-plugin-jest@^25.3.2:
-  version "25.7.0"
-  resolved "https://registry.npmjs.org/eslint-plugin-jest/-/eslint-plugin-jest-25.7.0.tgz"
-  integrity sha512-PWLUEXeeF7C9QGKqvdSbzLOiLTx+bno7/HC9eefePfEb257QFHg7ye3dh80AZVkaa/RQsBB1Q/ORQvg2X7F0NQ==
+eslint-plugin-jest@^26.8.2:
+  version "26.8.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-26.8.2.tgz#42a1248a5ade2bc589eb0f9c4e0608dd89b18cf3"
+  integrity sha512-67oh0FKaku9y48OpLzL3uK9ckrgLb83Sp5gxxTbtOGDw9lq6D8jw/Psj/9CipkbK406I2M7mvx1q+pv/MdbvxA==
   dependencies:
-    "@typescript-eslint/experimental-utils" "^5.0.0"
+    "@typescript-eslint/utils" "^5.10.0"
 
 eslint-plugin-jsx-a11y@^6.6.0:
   version "6.6.1"
