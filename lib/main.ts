@@ -7,10 +7,7 @@ import tar from 'tar-fs'
 import { Readable, pipeline, finished } from 'node:stream'
 import { v5 as uuidv5, v4 as uuidv4 } from 'uuid'
 
-if (getInput('token') === undefined) {
-  throw new Error('need to set YOUR GITHUB TOKEN as "token"')
-}
-const token = process.env.TOKEN ?? getInput('token')
+const token = process.env.TOKEN ?? getInput('token', { required: true })
 const owner = process.env.OWNER ?? github.context.repo.owner
 const repo = process.env.REPO ?? github.context.repo.repo
 const ref = process.env.REF ?? github.context.ref
