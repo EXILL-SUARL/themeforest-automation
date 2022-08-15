@@ -21,7 +21,7 @@
   "release-it": {
     "github": {
       "release": true,
-      "tokenRef": "GH_TOKEN"
+      "tokenRef": "RELEASEIT_TOKEN"
     },
     "npm": {
       "publish": false
