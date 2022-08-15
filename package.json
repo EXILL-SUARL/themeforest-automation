@@ -54,7 +54,7 @@
     "@vercel/ncc": "^0.31.1",
     "dotenv": "^16.0.1",
     "dotenv-cli": "^6.0.0",
-    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint": "^8.22.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-github": "^4.3.2",
     "eslint-plugin-import": "^2.25.2",
