@@ -45,7 +45,7 @@
   "devDependencies": {
     "@octokit/types": "^7.1.1",
     "@types/mkdirp": "^1.0.2",
-    "@types/node": "^18.7.11",
+    "@types/node": "^18.7.12",
     "@types/sharp": "^0.30.5",
     "@types/tar": "^6.1.2",
     "@types/tar-fs": "^2.0.1",
