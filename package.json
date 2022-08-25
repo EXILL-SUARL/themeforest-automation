@@ -61,7 +61,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "js-yaml": "^4.1.0",
     "prettier": "^2.7.1",
-    "release-it": "^15.3.0",
+    "release-it": "^15.4.0",
     "typescript": "*"
   },
   "author": "EXILL-SUARL"
