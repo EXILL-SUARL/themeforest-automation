@@ -58,7 +58,7 @@
     "eslint-config-standard-with-typescript": "^22.0.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.2.5",
-    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-promise": "^6.0.1",
     "js-yaml": "^4.1.0",
     "prettier": "^2.7.1",
     "release-it": "^15.3.0",
