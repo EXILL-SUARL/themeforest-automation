@@ -1,26 +1,20 @@
-# [Choice] Node.js version (use -bullseye variants on local arm64/Apple Silicon): 18, 16, 14, 18-bullseye, 16-bullseye, 14-bullseye, 18-buster, 16-buster, 14-buster
-ARG VARIANT=16-bullseye
-FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-${VARIANT}
+# [Choice] Debian version (use bullseye on local arm64/Apple Silicon): bullseye, buster
+ARG VARIANT="bullseye"
+FROM buildpack-deps:${VARIANT}-curl
 
-# Update packages
-RUN sudo apt update && sudo apt -y upgrade
-
-# Install packages
-RUN sudo apt install tzdata
-
-# COPY library-scripts/docker-debian.sh /tmp/library-scripts/
-# ENV DOCKER_BUILDKIT=1
-# RUN apt-get update && bash /tmp/library-scripts/docker-debian.sh
-# ENTRYPOINT ["/usr/local/share/docker-init.sh"]
-# CMD ["sleep", "infinity"]
+# [Option] Install zsh
+ARG INSTALL_ZSH="true"
+# [Option] Upgrade OS packages to their latest versions
+ARG UPGRADE_PACKAGES="true"
+# Install needed packages and setup non-root user. Use a separate RUN statement to add your own dependencies.
+ARG USERNAME=vscode
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+# Download the script
+RUN curl -LJ https://github.com/microsoft/vscode-dev-containers/raw/main/script-library/common-debian.sh -o /tmp/library-scripts/common-debian.sh --create-dirs
+RUN bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true" \
+    && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
 
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
-
-# [Optional] Uncomment if you want to install an additional version of node using nvm
-# ARG EXTRA_NODE_VERSION=10
-# RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
-
-# [Optional] Uncomment if you want to install more global node packages
-# RUN su node -c "npm install -g <your-package-list -here>"

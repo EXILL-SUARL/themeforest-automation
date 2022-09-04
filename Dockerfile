@@ -1,12 +1,8 @@
-FROM node:lts-bullseye
+FROM debian:stable
 
-RUN yarn global add ts-node
+RUN apt update && sudo apt upgrade -y
 
-COPY . /app
+COPY . .
 
-WORKDIR /app
-
-RUN yarn
-
-ENTRYPOINT ["ts-node", "/app/lib/main.ts"]
+ENTRYPOINT ["/bin/bash", "/entry.sh"]
 
