@@ -6,7 +6,7 @@ function parse_args
   while [ "$1" != "" ]; do
       case "$1" in
           -i | --input )               input="$2";             shift;;
-          -s | --output )       output="$2";     shift;;
+          -o | --output )       output="$2";     shift;;
       esac
       shift # move to next kv pair
   done
