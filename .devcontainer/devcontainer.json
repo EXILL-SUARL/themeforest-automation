@@ -46,8 +46,8 @@
     "ghcr.io/devcontainers/features/github-cli:1": {},
     // "python": "latest",
     // "node": "lts",
-    // "homebrew": "latest"
-    "desktop-lite": "latest"
+    "homebrew": "latest"
+    // "desktop-lite": "latest"
     // "rust": "latest"
   }
 }
