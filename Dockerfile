@@ -4,7 +4,5 @@ RUN apt update && sudo apt upgrade -y
 
 RUN deps.sh
 
-COPY . .
-
-ENTRYPOINT ["/bin/bash", "/entry.sh"]
+COPY . /tmp/themeforest-release-tools
 
