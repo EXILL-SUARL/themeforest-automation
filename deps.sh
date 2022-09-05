@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-brew install pandoc
+#Install Pandoc and its dependencies
+apt install pandoc --install-suggests -y
 
-sudo apt-get install texlive-latex-recommended texlive-latex-extra
-
-sudo apt install imagemagick
-
+# Install ImageMagick
+apt install imagemagick -y
