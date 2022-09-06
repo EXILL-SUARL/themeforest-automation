@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-#Install Pandoc and its dependencies
+# Update OS packages
+apt update && apt upgrade -y
+
+# Install Pandoc and its dependencies
 apt install pandoc --install-suggests -y
 
 # Install ImageMagick
