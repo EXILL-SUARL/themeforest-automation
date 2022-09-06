@@ -4,7 +4,7 @@
 apt update && apt upgrade -y
 
 # Install Pandoc and its dependencies
-apt install pandoc --install-suggests -y
+apt install pandoc texlive-latex-recommended texlive-latex-extra -y
 
 # Install ImageMagick
 apt install imagemagick -y
