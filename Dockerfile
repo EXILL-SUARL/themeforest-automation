@@ -1,8 +1,9 @@
 FROM debian:stable
 
-RUN apt update && sudo apt upgrade -y
+RUN apt update && apt upgrade -y
 
-RUN deps.sh
+COPY deps.sh /tmp
 
-COPY . /tmp/themeforest-release-tools
+RUN bash /tmp/deps.sh
 
+COPY workflow /usr/local/bin
