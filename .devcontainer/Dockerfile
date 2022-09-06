@@ -13,7 +13,7 @@ ARG USER_GID=$USER_UID
 # Download the script
 RUN curl -LJ https://github.com/microsoft/vscode-dev-containers/raw/main/script-library/common-debian.sh -o /tmp/library-scripts/common-debian.sh --create-dirs
 RUN bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true" \
-    && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
+  && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
 
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
