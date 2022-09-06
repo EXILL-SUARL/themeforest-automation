@@ -5,18 +5,34 @@ import os
 import glob
 import shutil
 
-ignore_file = sys.argv[1]
+ignore_file = None
+
+if len(sys.argv) == 1:
+  sys.exit('Please specify a path.')
+else:
+  ignore_file = sys.argv[1]
 
 if not os.path.exists(ignore_file):
-  print('The path specified does not exist')
-  sys.exit()
+  sys.exit('The path specified does not exist')
+
+def remove(path):
+  if os.path.isfile(path) or os.path.islink(path):
+    try:
+      os.remove(path)
+    except:
+      raise
+  elif os.path.isdir(path):
+    try:
+      shutil.rmtree(path)
+    except:
+      raise
+  else:
+    raise ValueError("file {} is not a file or dir.".format(path))
 
 file = open(ignore_file, 'r')
 for line in file:
   if not line.isspace() and not line.startswith('#'):
     for filePath in glob.glob(line.strip(), recursive=True):
-      try:
-        shutil.rmtree(filePath)
-      except:
-        print('Something went wrong.')
+      remove(filePath)
+      print(f'Successfully deleted {line.strip()} (if it existed)')
 file.close()
