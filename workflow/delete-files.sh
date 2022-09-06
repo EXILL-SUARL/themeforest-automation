@@ -14,7 +14,6 @@ if not os.path.exists(ignore_file):
 file = open(ignore_file, 'r')
 for line in file:
   if not line.isspace() and not line.startswith('#'):
-      # print(line.strip())
       for filePath in glob.glob(line.strip(), recursive=True):
         try:
           shutil.rmtree(filePath)
