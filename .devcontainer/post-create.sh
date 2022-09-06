@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-sudo apt update && sudo apt -y upgrade
+sudo apt update && sudo apt upgrade -y
 
 sudo apt install tzdata
 
-/bin/bash ../deps.sh
+sudo bash deps.sh
