@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-# validate required args
 if [[ -z "${1}" || -z "${2}" ]]; then
   printf '%s\n' "Invalid CLI arguments" >&2
   exit 1;
 fi
 
-pandoc -t beamer -o $2 $1
+mkdir $2
+
+mdtodoc $1 --layout "page" --theme "github" --highlight-style "atom-one-light" -d $2

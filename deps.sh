@@ -3,8 +3,8 @@
 # Update OS packages
 apt update && apt upgrade -y
 
-# Install Pandoc and its dependencies
-apt install pandoc texlive-latex-recommended texlive-latex-extra -y
-
 # Install ImageMagick
 apt install imagemagick -y
+
+# install markdown-to-document
+npm i markdown-to-document -g
