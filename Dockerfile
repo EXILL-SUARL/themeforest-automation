@@ -1,8 +1,8 @@
-FROM debian:stable
+FROM debian:bullseye
 
 RUN apt update && apt upgrade -y
 
-RUN apt install sudo curl -y
+RUN apt install zip sudo curl -y
 
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash && apt install nodejs -y
 
