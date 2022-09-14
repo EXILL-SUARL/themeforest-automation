@@ -22,13 +22,8 @@
     "vscode": {
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
-        "ms-azuretools.vscode-docker",
         "EditorConfig.EditorConfig",
-        "donjayamanne.git-extension-pack",
-        "GitHub.vscode-pull-request-github",
-        "esbenp.prettier-vscode",
-        "Gruntfuggly.todo-tree",
-        "GitHub.remotehub"
+        "esbenp.prettier-vscode"
       ]
     }
   },
