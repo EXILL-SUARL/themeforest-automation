@@ -4,4 +4,4 @@ sudo apt update && sudo apt upgrade -y
 
 sudo apt install tzdata
 
-bash deps.sh
+bash post-run.sh
