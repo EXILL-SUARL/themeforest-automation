@@ -13,8 +13,8 @@ ENV TMPDIR=$TMPDIR
 
 RUN mkdir $TMPDIR
 
-COPY post-run.sh /tmp
-
 COPY workflow /usr/local/bin
+
+COPY post-run.sh /tmp
 
 ENTRYPOINT [ "/tmp/post-run.sh" ]
