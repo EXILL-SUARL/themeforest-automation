@@ -1,5 +1,8 @@
 FROM debian:stable
 
+# update package list
+RUN apt update
+
 # install packages
 RUN apt install sudo curl -y
 
