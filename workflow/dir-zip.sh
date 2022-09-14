@@ -7,4 +7,4 @@ if [[ -z "${1}" || -z "${2}" ]]; then
   exit 1;
 fi
 
-zip -r $2.zip $1
+zip -r $TMPDIR/$2 $1
