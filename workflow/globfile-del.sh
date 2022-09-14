@@ -10,7 +10,7 @@ import shutil
 ignore_file = None
 
 if len(sys.argv) == 1:
-  sys.exit('Please specify a path.')
+  sys.exit(f'Please specify a path. \nusage: {sys.argv[0]} <target_globfile>')
 else:
   ignore_file = sys.argv[1]
 
