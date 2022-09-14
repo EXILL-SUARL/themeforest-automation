@@ -21,4 +21,4 @@ COPY workflow /usr/local/bin
 # execute post-run script
 COPY post-run.sh /tmp
 
-ENTRYPOINT [ "/tmp/post-run.sh" ]
+CMD [ "/tmp/post-run.sh" ]
