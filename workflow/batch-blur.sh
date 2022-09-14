@@ -2,8 +2,13 @@
 
 # Mass blur all images in the specified directory.
 
+function usage {
+  echo "usage: $0 <target_directory>"
+}
+
 if [[ -z "${1}" ]]; then
   printf '%s\n' "Target directory is missing." >&2
+  usage
   exit 1;
 fi
 
