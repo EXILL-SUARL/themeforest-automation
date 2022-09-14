@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+# Similar to .gitignore except it will delete the glob paths that match against the working directory.
+
 import sys
 import os
 import glob
