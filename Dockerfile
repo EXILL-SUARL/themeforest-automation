@@ -16,9 +16,7 @@ ENV TMPDIR=$TMPDIR
 
 RUN mkdir $TMPDIR
 
+# copy executables to bin directory
 COPY workflow /usr/local/bin
 
-# execute post-run script
-COPY post-run.sh /tmp
-
-CMD [ "/tmp/post-run.sh" ]
+COPY post-run.sh /usr/local/bin

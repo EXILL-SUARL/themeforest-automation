@@ -32,6 +32,8 @@ jobs:
       env:
         TMPDIR: ${{ env.TMPDIR }}
     steps:
+      - name: execute post-run # to update OS packages and install dependencies.
+        run: post-run.sh
       - name: Clone project # clone a repository to process
         uses: actions/checkout@v3
       - name: Strip files
