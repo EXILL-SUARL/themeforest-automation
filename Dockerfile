@@ -4,10 +4,13 @@ FROM debian:stable
 RUN apt update
 
 # install packages
-RUN apt install sudo curl zip -y
+RUN apt install sudo curl zip imagemagick -y
 
 # install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash && apt install nodejs -y
+
+# install markdown-to-document
+RUN npm i markdown-to-document@"<1.0.0" -g
 
 # create a temporary directory for processing and storing files and set it as ENV
 ARG TMPDIR="/tmp/temporary-dir"
