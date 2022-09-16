@@ -4,7 +4,7 @@ FROM debian:stable
 RUN apt update
 
 # install packages
-RUN apt install sudo curl -y
+RUN apt install sudo curl zip -y
 
 # install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash && apt install nodejs -y
