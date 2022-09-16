@@ -7,7 +7,7 @@ RUN apt update
 RUN apt install sudo curl zip -y
 
 # install Node.js
-RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash && apt install nodejs -y
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash && apt install nodejs -y
 
 # create a temporary directory for processing and storing files and set it as ENV
 ARG TMPDIR="/tmp/temporary-dir"
