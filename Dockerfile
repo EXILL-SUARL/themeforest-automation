@@ -13,11 +13,11 @@ RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash && apt install nodej
 RUN npm i markdown-to-document@"<1.0.0" -g
 
 # create a temporary directory for processing and storing files and set it as ENV
-ARG TMPDIR="/tmp/temporary-dir"
+ARG TMPDIR="directory"
 
 ENV TMPDIR=$TMPDIR
 
-RUN mkdir $TMPDIR
+RUN mkdir -p /tmp/$TMPDIR-tmp/
 
 # copy executables to bin directory
 COPY workflow /usr/local/bin
