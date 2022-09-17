@@ -18,10 +18,18 @@ on:
   push:
     tags:
       - 'v*'
-env:
-  TMPDIR: /tmp/${{ github.event.repository.name }}-${{ github.ref_name }}
-  STRIPPED_ZIP: ${{ env.TMPDIR }}/bin/output-${{ github.ref_name }}
 jobs:
+  export-vars:
+    runs-on: ubuntu-latest
+    steps:
+      - name: export variables
+        run: |
+          RELEASE_NAME=${{ github.event.repository.name }}-${{ github.ref_name }}
+          echo "RELEASE_NAME=$RELEASE_NAME" >> $GITHUB_ENV
+          echo "TMPDIR=$TMPDIR" >> $GITHUB_ENV
+          echo "STRIPPED_ZIP_DIR=to-deliver"
+          echo "STRIPPED_ZIP_NAME=$RELEASE_NAME.zip" >> $GITHUB_ENV
+          echo "STRIPPED_ZIP=$TMPDIR/$STRIPPED_ZIP_DIR/$STRIPPED_ZIP_NAME" >> $GITHUB_ENV
   process:
     runs-on: ubuntu-latest
     needs: [] # define prerequisite jobs
@@ -29,8 +37,6 @@ jobs:
       # output-example: # define an output
     container:
       image: ghcr.io/exill-suarl/themeforest-automation:latest # it's recommended to use SemVer tags to avoid breaking changes
-      env:
-        TMPDIR: ${{ env.TMPDIR }}
     steps:
       - name: execute post-run # to update OS packages and install dependencies.
         run: post-run.sh
@@ -43,7 +49,7 @@ jobs:
       - name: Blur ./public # batch-blur images in ./public directory
         run: batch-blur.sh ./public
       - name: ZIP CWD # export the current working directory as a ZIP
-        run: dir-zip.sh . ${{ env.STRIPPED_ZIP }}
+        run: dir-zip.sh . ${{ env.STRIPPED_ZIP_NAME }} ${{ env.STRIPPED_ZIP_NAME }}
       - name: upload stripped ZIP as an artifact
         uses: actions/upload-artifact@v3 # upload Artifact
         with:
