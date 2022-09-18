@@ -18,19 +18,36 @@ on:
   push:
     tags:
       - 'v*'
-env:
-  TMPDIR: /tmp/${{ github.event.repository.name }}-${{ github.ref_name }}
-  STRIPPED_ZIP: ${{ env.TMPDIR }}/bin/output-${{ github.ref_name }}
 jobs:
+  export-vars:
+    runs-on: ubuntu-latest
+    outputs:
+      RELEASE_NAME: ${{ steps.vars.outputs.RELEASE_NAME }}
+      TMPDIR: ${{ steps.vars.outputs.TMPDIR }}
+      STRIPPED_ZIP_DIR: ${{ steps.vars.outputs.STRIPPED_ZIP_DIR }}
+      STRIPPED_ZIP_NAME: ${{ steps.vars.outputs.STRIPPED_ZIP_NAME }}
+      STRIPPED_ZIP: ${{ steps.vars.outputs.STRIPPED_ZIP }}
+    steps:
+      - name: Export variables
+        run: |
+          RELEASE_NAME=${{ github.event.repository.name }}-${{ github.ref_name }}
+          TMPDIR=/tmp/$RELEASE_NAME-tmp
+          STRIPPED_ZIP_DIR=$TMPDIR/to-deliver
+          STRIPPED_ZIP_NAME=$RELEASE_NAME.zip
+          echo "::set-output name=RELEASE_NAME::${{ github.event.repository.name }}-${{ github.ref_name }}"
+          echo "::set-output name=TMPDIR::$TMPDIR"
+          echo "::set-output name=STRIPPED_ZIP_DIR::$STRIPPED_ZIP_DIR"
+          echo "::set-output name=STRIPPED_ZIP_NAME::$STRIPPED_ZIP_NAME"
+          echo "::set-output name=STRIPPED_ZIP::$STRIPPED_ZIP_DIR/$STRIPPED_ZIP_NAME"
   process:
     runs-on: ubuntu-latest
-    needs: [] # define prerequisite jobs
+    needs: [export-vars] # define prerequisite jobs
     outputs:
       # output-example: # define an output
     container:
       image: ghcr.io/exill-suarl/themeforest-automation:latest # it's recommended to use SemVer tags to avoid breaking changes
       env:
-        TMPDIR: ${{ env.TMPDIR }}
+        TMPDIR: ${{ needs.export-vars.outputs.TMPDIR }}
     steps:
       - name: execute post-run # to update OS packages and install dependencies.
         run: post-run.sh
@@ -43,12 +60,12 @@ jobs:
       - name: Blur ./public # batch-blur images in ./public directory
         run: batch-blur.sh ./public
       - name: ZIP CWD # export the current working directory as a ZIP
-        run: dir-zip.sh . ${{ env.STRIPPED_ZIP }}
+        run: dir-zip.sh . ${{ needs.export-vars.outputs.STRIPPED_ZIP_DIR }} ${{ needs.export-vars.outputs.STRIPPED_ZIP_NAME }}
       - name: upload stripped ZIP as an artifact
         uses: actions/upload-artifact@v3 # upload Artifact
         with:
           name: stripped-zip
-          path: ${{ env.STRIPPED_ZIP }}
+          path: ${{ needs.export-vars.outputs.STRIPPED_ZIP }}
       - name: upload CWD as an artifact
         uses: actions/upload-artifact@v3 # upload Artifact
         with:
@@ -64,8 +81,6 @@ jobs:
           password: ${{ secrets.ftp_delivery_password }}
       - name: Download Artifact # download all previously uploaded Artifacts
         uses: actions/download-artifact@v3
-          with:
-            path: ${{ env.TMPDIR }}/artifacts
 ```
 
 #### More information on Github Action usage can be found at:
