@@ -2,6 +2,8 @@
 
 # Generate a single-page documentation from a markdown file.
 
+set -e
+
 function usage {
   echo "usage: $0 <input_markdown> <output_path>"
 }
