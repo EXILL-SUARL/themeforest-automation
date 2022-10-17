@@ -2,6 +2,8 @@
 
 # Zips a directory.
 
+set -e
+
 function usage {
   echo "usage: $0 <source_directory> <target_path> <output_filename>"
 }

@@ -2,6 +2,8 @@
 
 # Mass blur all images in the specified directory.
 
+set -e
+
 function usage {
   echo "usage: $0 <target_directory>"
 }
