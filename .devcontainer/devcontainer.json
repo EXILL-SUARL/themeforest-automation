@@ -12,7 +12,9 @@
   },
   "runArgs": [
     "--init",
-    "--dns=1.1.1.1"
+    "--dns=1.1.1.1",
+    "-v",
+    "${env:HOME}/.wakatime.cfg:/root/.wakatime.cfg"
   ],
   "containerEnv": {
     "TZ": "Africa/Tunis"
