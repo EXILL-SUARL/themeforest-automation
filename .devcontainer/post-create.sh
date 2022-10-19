@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+set -e
+
 sudo apt update && sudo apt upgrade -y
 
 sudo apt install tzdata
 
-bash post-run.sh
+sudo bash post-run.sh
