@@ -1,21 +1,28 @@
-FROM debian:stable
+FROM debian:stable AS development
 
-# update package list
+# Update package list
 RUN apt update
 
-# install packages
-RUN apt install sudo curl zip imagemagick -y
+# Create a layer
+FROM debian:stable
 
-# install Node.js
+# Update package list
+RUN apt update
+
+# Install packages
+RUN apt install sudo curl -y
+
+# Install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash && apt install nodejs -y
 
-# install Python 3 and PIP
+# Install Python 3 and PIP
 RUN sudo apt install python3 python3-pip -y
 
-# install markdown-to-document
-RUN npm i markdown-to-document@"<1.0.0" -g
+COPY install-dependencies.sh /tmp
 
-# create a temporary directory for processing and storing files and set it as ENV
+RUN /tmp/install-dependencies.sh
+
+# Create a temporary directory for processing and storing files and set it as ENV
 ARG TMP_DIRNAME="directory"
 
 ENV TMP_DIRNAME=$TMP_DIRNAME
@@ -26,7 +33,5 @@ ENV TMPDIR=$TMPDIR
 
 RUN mkdir -p TMPDIR
 
-# copy executables to bin directory
+# Copy executables to bin directory
 COPY workflow /usr/local/bin
-
-COPY post-run.sh /usr/local/bin
