@@ -11,5 +11,8 @@ pip install python-slugify
 # install markdown-to-document
 npm i markdown-to-document@"<1.0.0" -g
 
+# install Tera CLI
+cargo install --git https://github.com/chevdor/tera-cli
+
 # install packages
 sudo apt install sudo curl zip imagemagick -y
