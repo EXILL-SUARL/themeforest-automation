@@ -25,7 +25,7 @@ RUN sudo apt install python3 python3-pip -y
 
 COPY install-dependencies.sh /tmp
 
-RUN /tmp/install-dependencies.sh
+RUN DEBIAN_FRONTEND=noninteractive /tmp/install-dependencies.sh
 
 # Create a temporary directory for processing and storing files and set it as ENV
 ARG TMP_DIRNAME="directory"
