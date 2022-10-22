@@ -15,6 +15,11 @@ RUN apt install sudo curl -y
 # Install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash && apt install nodejs -y
 
+# Install Rustup
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+ENV PATH="/root/.cargo/bin:${PATH}"
+
 # Install Python 3 and PIP
 RUN sudo apt install python3 python3-pip -y
 
