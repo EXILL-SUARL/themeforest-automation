@@ -14,4 +14,10 @@ if [[ -z "${1}" ]]; then
   exit 1;
 fi
 
+if [ ! -d $1 ]; then
+  printf '%s\n' "Target directory does not exist." >&2
+  usage
+  exit 1;
+fi
+
 find $1 -iregex '.*\.\(jpg\|gif\|ico\|png\|jpeg\|webp\)$' -type f -exec convert -blur 0x20 {} {} \;
