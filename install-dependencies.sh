@@ -6,7 +6,7 @@ set -e
 sudo apt update && sudo apt upgrade -y
 
 # Install python-slugify
-pip Install python-slugify
+pip install python-slugify
 
 # Install markdown-to-document
 npm i markdown-to-document@"<1.0.0" -g
