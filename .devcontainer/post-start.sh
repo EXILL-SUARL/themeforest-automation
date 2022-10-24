@@ -6,4 +6,6 @@ sudo apt update && sudo apt upgrade -y
 
 sudo apt install tzdata -y
 
+echo "export PATH=$PATH:$PWD/workflow" >> ~/.bashrc
+
 source install-dependencies.sh
