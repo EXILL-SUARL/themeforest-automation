@@ -17,4 +17,4 @@ jobs:
       - name: Build
         run: docker build . --file Dockerfile --tag ${{ env.PROJECT_NAME }}
       - name: Test
-        run: docker run -it --rm --name ${{ env.PROJECT_NAME }} ${{ env.PROJECT_NAME }} /tmp/tests/run.sh
+        run: docker run --name ${{ env.PROJECT_NAME }} ${{ env.PROJECT_NAME }} /tmp/tests/run.sh
