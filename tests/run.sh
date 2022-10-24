@@ -4,7 +4,7 @@ set -e
 
 ORIGINAL_PWD="$PWD"
 
-if [ "$PROD" == 'true' ]; then
+if [ "$CI" == 'true' ]; then
   TESTS_DIR="/tmp/tests"
 else
   TESTS_DIR="$PWD/tests"
