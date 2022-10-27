@@ -45,7 +45,7 @@
       "version": "16"
     },
     "ghcr.io/devcontainers/features/python:1": {
-      "version": "os-provided"
+      "version": "3.11.0"
     },
     "ghcr.io/devcontainers/features/rust:1": {
       "version": "latest"

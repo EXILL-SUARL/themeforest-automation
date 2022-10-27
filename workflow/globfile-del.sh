@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/root/.pyenv/versions/3.11.0/bin/python3.11
 
 # Similar to .gitignore except it will delete matching glob paths.
 
@@ -6,13 +6,16 @@ import sys
 import os
 import glob
 import shutil
+from pathlib import Path
 
 ignore_file = None
 
 if len(sys.argv) == 1:
   sys.exit(f'Please specify a path. \nusage: {sys.argv[0]} <target_globfile>')
 else:
-  ignore_file = sys.argv[1]
+  ignore_file = os.path.abspath(sys.argv[1])
+
+cwd = Path(ignore_file).parent.absolute()
 
 if not os.path.exists(ignore_file):
   sys.exit('The path specified does not exist')
@@ -34,7 +37,7 @@ def remove(path):
 file = open(ignore_file, 'r')
 for line in file:
   if not line.isspace() and not line.startswith('#'):
-    for filePath in glob.glob(line.strip(), recursive=True):
-      remove(filePath)
+    for filePath in glob.glob(line.strip(), root_dir=cwd, recursive=True):
+      remove(os.path.join(cwd, filePath))
       print(f'Successfully deleted {line.strip()} (if it existed)')
 file.close()
