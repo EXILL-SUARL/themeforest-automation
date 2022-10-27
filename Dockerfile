@@ -10,6 +10,8 @@ COPY features.sh /tmp
 
 COPY install-dependencies.sh /tmp
 
+COPY shared-features /tmp/shared-features
+
 RUN DEBIAN_FRONTEND=noninteractive /tmp/features.sh
 
 # Create a temporary directory for processing and storing files and set it as ENV
