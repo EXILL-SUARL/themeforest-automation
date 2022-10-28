@@ -8,6 +8,6 @@ sudo apt install tzdata -y
 
 echo "export PATH=$PATH:$PWD/workflow" >> ~/.bashrc
 
-source ../shared-features/python.sh
+sudo ./shared-features/python.sh
 
 source install-dependencies.sh
