@@ -1,4 +1,4 @@
-#!/root/.pyenv/versions/3.11.0/bin/python3.11
+#!/pyenv/versions/3.11.0/bin/python3
 
 # Similar to .gitignore except it will delete matching glob paths.
 
