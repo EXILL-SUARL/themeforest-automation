@@ -54,11 +54,21 @@ jobs:
             type=semver,enable=${{ steps.chosen-tag.outputs.tag != 'master' }},pattern=v{{version}},value=${{ steps.chosen-tag.outputs.tag }}
             type=semver,enable=${{ steps.chosen-tag.outputs.tag != 'master' }},pattern=v{{major}},value=${{ steps.chosen-tag.outputs.tag }}
             type=semver,enable=${{ steps.chosen-tag.outputs.tag != 'master' }},pattern=v{{major}}.{{minor}},value=${{ steps.chosen-tag.outputs.tag }}
-      - name: Build and push Docker image
-        id: build-and-push
+      - name: Build and export to Docker
+        id: build-and-export
         uses: docker/build-push-action@c56af957549030174b10d6867f20e78cfd7debc5
         with:
           context: .
+          load: true
+          tags: ${{ github.event.repository.name }}
+          labels: ${{ steps.meta.outputs.labels }}
+      - name: Test
+        run: docker run --env CI=true --name ${{ github.event.repository.name }} ${{ github.event.repository.name }} /tmp/tests/run.sh
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
