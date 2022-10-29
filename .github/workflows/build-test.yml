@@ -7,7 +7,7 @@ on:
     branches: ['master']
 
 env:
-  PROJECT_NAME: themeforest-automation-ci
+  PROJECT_NAME: ${{ github.event.repository.name }}
 
 jobs:
   build:
