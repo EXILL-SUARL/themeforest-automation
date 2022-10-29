@@ -1,6 +1,8 @@
 name: Docker publish
 
 on:
+  schedule:
+    - cron: '*/5 * * * *'
   push:
     branches:
       - 'master'
@@ -20,6 +22,21 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Get the latest non-prerelease
+        uses: rez0n/actions-github-release@main
+        id: latest-release
+        env:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          type: stable
+      - name: Choose Docker tag
+        id: chosen-tag
+        run: |
+          if [ ${{ github.event_name }}  == 'schedule' ]; then
+            echo "tag=${{ steps.latest-release.outputs.release }}" >> $GITHUB_OUTPUT
+          else
+            echo "tag=${{github.ref_name}}" >> $GITHUB_OUTPUT
+          fi
       - name: Log into registry ${{ env.REGISTRY }}
         if: github.event_name != 'pull_request'
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
@@ -33,11 +50,10 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern=v{{version}}
-            type=semver,pattern=v{{major}}
-            type=semver,pattern=v{{major}}.{{minor}}
+            type=ref,event=branch,enable=${{github.event_name  != 'schedule'}}
+            type=semver,enable=${{ steps.chosen-tag.outputs.tag != 'master' }},pattern=v{{version}},value=${{ steps.chosen-tag.outputs.tag }}
+            type=semver,enable=${{ steps.chosen-tag.outputs.tag != 'master' }},pattern=v{{major}},value=${{ steps.chosen-tag.outputs.tag }}
+            type=semver,enable=${{ steps.chosen-tag.outputs.tag != 'master' }},pattern=v{{major}}.{{minor}},value=${{ steps.chosen-tag.outputs.tag }}
       - name: Build and push Docker image
         id: build-and-push
         uses: docker/build-push-action@c56af957549030174b10d6867f20e78cfd7debc5
