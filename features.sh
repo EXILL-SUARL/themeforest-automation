@@ -23,7 +23,9 @@ curl -sSL https://rvm.io/pkuczynski.asc | gpg --import -
 
 curl -sSL https://get.rvm.io | bash -s stable --ruby="3.0" && source $RUBY_PATH && echo "source $RUBY_PATH" >> $HOME/.bashrc
 
-# Install Python 3 and PIP
+# Install Python 3 and PIP (both os-provided/3.11)
 apt install python3 python3-pip -y
+
+source /tmp/shared-features/python.sh
 
 source /tmp/install-dependencies.sh
