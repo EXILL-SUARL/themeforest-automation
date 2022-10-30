@@ -6,7 +6,7 @@ set -e
 apt update
 
 # Install packages
-apt install sudo curl procps -y
+apt install sudo curl procps build-essential -y
 
 # Install Node.js
 curl -fsSL https://deb.nodesource.com/setup_16.x | bash && apt install nodejs -y
@@ -14,7 +14,11 @@ curl -fsSL https://deb.nodesource.com/setup_16.x | bash && apt install nodejs -y
 # Install Rustup
 RUSTPUP_PATH=$HOME/.cargo/env
 
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && source $RUSTPUP_PATH && echo "source $RUSTPUP_PATH" >> $HOME/.bashrc
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+source $RUSTPUP_PATH
+
+echo "source $RUSTPUP_PATH" >> $HOME/.bashrc
 
 # Install Ruby
 RUBY_PATH=/usr/local/rvm/scripts/rvm

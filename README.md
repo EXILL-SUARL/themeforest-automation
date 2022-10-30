@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       RELEASE_NAME: ${{ steps.vars.outputs.RELEASE_NAME }}
-      TMPDIR: ${{ steps.vars.outputs.TMPDIR }}
+      TMP_DIR: ${{ steps.vars.outputs.TMP_DIR }}
       STRIPPED_ZIP_DIR: ${{ steps.vars.outputs.STRIPPED_ZIP_DIR }}
       STRIPPED_ZIP_NAME: ${{ steps.vars.outputs.STRIPPED_ZIP_NAME }}
       STRIPPED_ZIP: ${{ steps.vars.outputs.STRIPPED_ZIP }}
@@ -31,11 +31,11 @@ jobs:
       - name: Export variables
         run: |
           RELEASE_NAME=${{ github.event.repository.name }}-${{ github.ref_name }}
-          TMPDIR=/tmp/$RELEASE_NAME-tmp
-          STRIPPED_ZIP_DIR=$TMPDIR/to-deliver
+          TMP_DIR=/tmp/$RELEASE_NAME-tmp
+          STRIPPED_ZIP_DIR=$TMP_DIR/to-deliver
           STRIPPED_ZIP_NAME=$RELEASE_NAME.zip
           echo "::set-output name=RELEASE_NAME::${{ github.event.repository.name }}-${{ github.ref_name }}"
-          echo "::set-output name=TMPDIR::$TMPDIR"
+          echo "::set-output name=TMP_DIR::$TMP_DIR"
           echo "::set-output name=STRIPPED_ZIP_DIR::$STRIPPED_ZIP_DIR"
           echo "::set-output name=STRIPPED_ZIP_NAME::$STRIPPED_ZIP_NAME"
           echo "::set-output name=STRIPPED_ZIP::$STRIPPED_ZIP_DIR/$STRIPPED_ZIP_NAME"
@@ -47,7 +47,7 @@ jobs:
     container:
       image: ghcr.io/exill-suarl/themeforest-automation:latest # it's recommended to use SemVer tags to avoid breaking changes
       env:
-        TMPDIR: ${{ needs.export-vars.outputs.TMPDIR }}
+        TMP_DIR: ${{ needs.export-vars.outputs.TMP_DIR }}
     steps:
       - name: execute post-run # to update OS packages and install dependencies.
         run: post-run.sh
