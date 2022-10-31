@@ -6,6 +6,8 @@ RUN apt update
 # Create a layer
 FROM debian:stable
 
+ENV CI=true
+
 COPY features.sh /tmp
 
 COPY install-dependencies.sh /tmp
