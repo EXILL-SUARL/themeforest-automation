@@ -12,20 +12,24 @@ apt install sudo curl procps build-essential -y
 curl -fsSL https://deb.nodesource.com/setup_16.x | bash && apt install nodejs -y
 
 # Install Rustup
-RUSTPUP_PATH="$HOME/.cargo/env"
+RUSTPUP_PATH=~/.cargo/env
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 source $RUSTPUP_PATH
 
-echo "source $RUSTPUP_PATH && export PATH="$HOME/.cargo/bin:$PATH"" >> $HOME/.bashrc
+echo "source $RUSTPUP_PATH" >> ~/.bashrc
 
 # Install Ruby
 RUBY_PATH=/usr/local/rvm/scripts/rvm
 
 curl -sSL https://rvm.io/pkuczynski.asc | gpg --import -
 
-curl -sSL https://get.rvm.io | bash -s stable --ruby="3.0" && source $RUBY_PATH && echo "source $RUBY_PATH" >> $HOME/.bashrc
+curl -sSL https://get.rvm.io | bash -s stable --ruby="3.0"
+
+source $RUBY_PATH
+
+echo "source $RUBY_PATH" >> ~/.bashrc
 
 # Install Python 3 and PIP (both os-provided/3.11)
 apt install python3 python3-pip -y
