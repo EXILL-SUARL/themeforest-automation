@@ -17,8 +17,8 @@ fi
 for dir in `ls $TESTS_DIR`; do
 TEST_DIR=$TESTS_DIR/$dir
 if [ -d $TEST_DIR ]; then
-  cd $TEST_DIR
-  ./run.sh
+  cd $TEST_DIR/assets
+  ../run.sh
   cd $ORIGINAL_PWD
 fi
 done

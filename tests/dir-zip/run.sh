@@ -2,7 +2,7 @@
 
 set -e
 
-SOURCE=./assets
+SOURCE=.
 TARGET=$SOURCE/output
 OUTPUT_NAME=compressed
 OUTPUT_PATH=$TARGET/$OUTPUT_NAME.zip

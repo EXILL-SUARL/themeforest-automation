@@ -2,9 +2,9 @@
 
 set -e
 
-INPUT_TEMPLATE=./assets/template.md
-INPUT_DATA=./assets/data.json
-OUTPUT_DIR=./assets/output
+INPUT_TEMPLATE=./template.md
+INPUT_DATA=./data.json
+OUTPUT_DIR=./output
 OUTPUT_FILE=$OUTPUT_DIR/template.html
 
 md-to-doc.sh "$(cat $INPUT_DATA)" $INPUT_TEMPLATE $OUTPUT_DIR

@@ -4,7 +4,7 @@ set -e
 
 declare -A ASSETS_SHA1
 
-ASSETS_DIR=./assets
+ASSETS_DIR=.
 
 SHA256_GET_VALUE=""
 

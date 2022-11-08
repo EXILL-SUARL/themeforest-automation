@@ -2,9 +2,9 @@
 
 set -e
 
-globfile-del.sh ./assets/.ignore
+globfile-del.sh ./.ignore
 
-COUNT=$(find ./assets | wc -l)
+COUNT=$(find . | wc -l)
 
 if [ $COUNT != 6 ]; then
   printf '%s\n' "Files count test for globfile-del.sh has failed." >&2
