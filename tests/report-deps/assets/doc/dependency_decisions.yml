@@ -1,0 +1,61 @@
+---
+- - :approve
+  - axios
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-11-02 14:25:01.811351535 Z
+- - :approve
+  - chalk
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-11-02 14:25:24.343389889 Z
+- - :approve
+  - commander
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-11-02 14:25:27.846613727 Z
+- - :approve
+  - express
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-11-02 14:25:33.445416226 Z
+- - :approve
+  - lodash
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-11-02 14:25:38.368357143 Z
+- - :approve
+  - moment
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-11-02 14:25:42.659214032 Z
+- - :approve
+  - react
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-11-02 14:25:47.158607347 Z
+- - :approve
+  - react-dom
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-11-02 14:25:51.894105052 Z
+- - :approve
+  - tslib
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-11-02 14:25:57.247422031 Z
+- - :approve
+  - vue
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-11-02 14:26:01.359575655 Z
