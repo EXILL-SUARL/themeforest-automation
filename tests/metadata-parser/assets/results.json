@@ -1,0 +1,110 @@
+{
+  "item_one_json": {
+    "id": 7564,
+    "uid": "a226c94b-296c-4418-a16e-61ad3fafc546",
+    "password": "qvE5QrsNHL",
+    "first_name": "Lawerence",
+    "last_name": "Lynch",
+    "username": "lawerence.lynch",
+    "email": "lawerence.lynch@email.com",
+    "avatar": "https://robohash.org/exquaenecessitatibus.png?size=300x300&set=set1",
+    "gender": "Male",
+    "phone_number": "+501 (564) 969-6451 x9453",
+    "social_insurance_number": "154188106",
+    "date_of_birth": "1990-12-04",
+    "employment": {
+      "title": "District Education Administrator",
+      "key_skill": "Problem solving"
+    },
+    "address": {
+      "city": "Beattyland",
+      "street_name": "Keeling Unions",
+      "street_address": "4593 Teodoro Valleys",
+      "zip_code": "28950-1097",
+      "state": "North Carolina",
+      "country": "United States",
+      "coordinates": { "lat": 54.01772998393719, "lng": -150.4886253324849 }
+    },
+    "credit_card": { "cc_number": "4702191468039" },
+    "subscription": {
+      "plan": "Platinum",
+      "status": "Idle",
+      "payment_method": "WeChat Pay",
+      "term": "Payment in advance"
+    }
+  },
+  "item_two_json": {
+    "id": 2863,
+    "uid": "23b21666-2fd5-4b51-b4c6-ec352439bd52",
+    "password": "NjnSxk1JrD",
+    "first_name": "Ricki",
+    "last_name": "O'Keefe",
+    "username": "ricki.o'keefe",
+    "email": "ricki.o'keefe@email.com",
+    "avatar": "https://robohash.org/facereveritatisvel.png?size=300x300&set=set1",
+    "gender": "Polygender",
+    "phone_number": "+236 512.730.6338 x86760",
+    "social_insurance_number": "438659674",
+    "date_of_birth": "1979-04-02",
+    "employment": { "title": "Education Architect", "key_skill": "Proactive" },
+    "address": {
+      "city": "New Marvin",
+      "street_name": "Ramiro River",
+      "street_address": "61666 Roslyn Cove",
+      "zip_code": "44811",
+      "state": "Georgia",
+      "country": "United States",
+      "coordinates": { "lat": -85.8550057538576, "lng": -93.08806720257336 }
+    },
+    "credit_card": { "cc_number": "4877870240014" },
+    "subscription": {
+      "plan": "Business",
+      "status": "Active",
+      "payment_method": "Alipay",
+      "term": "Annual"
+    }
+  },
+  "item_three_json": {
+    "id": 6913,
+    "uid": "e8e2aa37-0981-4111-9d39-a9f21edb657b",
+    "account_number": "7446781323",
+    "iban": "GB26YSUG25889332213052",
+    "bank_name": "SANTANDER UK PLC",
+    "routing_number": "086480945",
+    "swift_bic": "ABCCGB22"
+  },
+  "item_four_json": {
+    "id": 6142,
+    "uid": "98fd362d-b478-4676-8834-12ef42ba98f3",
+    "password": "5SqIDCeLiM",
+    "first_name": "Akilah",
+    "last_name": "Parker",
+    "username": "akilah.parker",
+    "email": "akilah.parker@email.com",
+    "avatar": "https://robohash.org/aliasearumpraesentium.png?size=300x300&set=set1",
+    "gender": "Genderfluid",
+    "phone_number": "+596 (999) 296-6682 x05563",
+    "social_insurance_number": "418075172",
+    "date_of_birth": "1966-05-17",
+    "employment": {
+      "title": "Real-Estate Orchestrator",
+      "key_skill": "Networking skills"
+    },
+    "address": {
+      "city": "New Williams",
+      "street_name": "Prohaska Plaza",
+      "street_address": "5122 Jc Plain",
+      "zip_code": "25425-5284",
+      "state": "Rhode Island",
+      "country": "United States",
+      "coordinates": { "lat": -19.62322643781981, "lng": 147.58454880472198 }
+    },
+    "credit_card": { "cc_number": "5575-9607-9560-9006" },
+    "subscription": {
+      "plan": "Student",
+      "status": "Active",
+      "payment_method": "Cheque",
+      "term": "Payment in advance"
+    }
+  }
+}
