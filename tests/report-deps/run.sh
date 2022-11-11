@@ -6,8 +6,6 @@ DECISIONS_FILE=./doc/dependency_decisions.yml
 OUTPUT_DIR=./output
 OUTPUT_FILE=$OUTPUT_DIR/license_report.html
 
-license_finder project_roots
-
 report-deps.sh $DECISIONS_FILE $OUTPUT_DIR
 
 STRIP() {
