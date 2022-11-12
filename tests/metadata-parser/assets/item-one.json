@@ -1,0 +1,39 @@
+{
+  "id": 7564,
+  "uid": "a226c94b-296c-4418-a16e-61ad3fafc546",
+  "password": "qvE5QrsNHL",
+  "first_name": "Lawerence",
+  "last_name": "Lynch",
+  "username": "lawerence.lynch",
+  "email": "lawerence.lynch@email.com",
+  "avatar": "https://robohash.org/exquaenecessitatibus.png?size=300x300&set=set1",
+  "gender": "Male",
+  "phone_number": "+501 (564) 969-6451 x9453",
+  "social_insurance_number": "154188106",
+  "date_of_birth": "1990-12-04",
+  "employment": {
+    "title": "District Education Administrator",
+    "key_skill": "Problem solving"
+  },
+  "address": {
+    "city": "Beattyland",
+    "street_name": "Keeling Unions",
+    "street_address": "4593 Teodoro Valleys",
+    "zip_code": "28950-1097",
+    "state": "North Carolina",
+    "country": "United States",
+    "coordinates": {
+      "lat": 54.01772998393719,
+      "lng": -150.4886253324849
+    }
+  },
+  "credit_card": {
+    "cc_number": "4702191468039"
+  },
+  "subscription": {
+    "plan": "Platinum",
+    "status": "Idle",
+    "payment_method": "WeChat Pay",
+    "term": "Payment in advance"
+  }
+}

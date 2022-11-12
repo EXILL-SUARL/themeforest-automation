@@ -1,0 +1,39 @@
+{
+  "id": 6142,
+  "uid": "98fd362d-b478-4676-8834-12ef42ba98f3",
+  "password": "5SqIDCeLiM",
+  "first_name": "Akilah",
+  "last_name": "Parker",
+  "username": "akilah.parker",
+  "email": "akilah.parker@email.com",
+  "avatar": "https://robohash.org/aliasearumpraesentium.png?size=300x300&set=set1",
+  "gender": "Genderfluid",
+  "phone_number": "+596 (999) 296-6682 x05563",
+  "social_insurance_number": "418075172",
+  "date_of_birth": "1966-05-17",
+  "employment": {
+    "title": "Real-Estate Orchestrator",
+    "key_skill": "Networking skills"
+  },
+  "address": {
+    "city": "New Williams",
+    "street_name": "Prohaska Plaza",
+    "street_address": "5122 Jc Plain",
+    "zip_code": "25425-5284",
+    "state": "Rhode Island",
+    "country": "United States",
+    "coordinates": {
+      "lat": -19.62322643781981,
+      "lng": 147.58454880472198
+    }
+  },
+  "credit_card": {
+    "cc_number": "5575-9607-9560-9006"
+  },
+  "subscription": {
+    "plan": "Student",
+    "status": "Active",
+    "payment_method": "Cheque",
+    "term": "Payment in advance"
+  }
+}

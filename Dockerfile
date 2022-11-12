@@ -6,9 +6,13 @@ RUN apt update
 # Create a layer
 FROM debian:stable
 
+ENV CI=true
+
 COPY features.sh /tmp
 
 COPY install-dependencies.sh /tmp
+
+COPY tests /tmp/tests
 
 COPY shared-features /tmp/shared-features
 
@@ -19,11 +23,11 @@ ARG TMP_DIRNAME="directory"
 
 ENV TMP_DIRNAME=$TMP_DIRNAME
 
-ARG TMPDIR=/tmp/$TMP_DIRNAME-tmp/
+ARG TMP_DIR=/tmp/$TMP_DIRNAME-tmp/
 
-ENV TMPDIR=$TMPDIR
+ENV TMP_DIR=$TMP_DIR
 
-RUN mkdir -p TMPDIR
+RUN mkdir -p TMP_DIR
 
 # Copy executables to bin directory
 COPY workflow /usr/local/bin
