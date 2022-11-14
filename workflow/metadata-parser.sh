@@ -6,7 +6,6 @@ import sys
 import os
 import json
 from slugify import slugify
-from pathlib import Path
 
 if len(sys.argv) == 1:
   sys.exit(f'Please specify a path. \nusage: {sys.argv[0]} <target_json_files_seperated_by_space>')
