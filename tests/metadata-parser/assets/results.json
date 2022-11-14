@@ -73,7 +73,7 @@
     "routing_number": "086480945",
     "swift_bic": "ABCCGB22"
   },
-  "item_four_json": {
+  "sub_dir_item_four_json": {
     "id": 6142,
     "uid": "98fd362d-b478-4676-8834-12ef42ba98f3",
     "password": "5SqIDCeLiM",
