@@ -9,7 +9,7 @@ apt update
 apt install sudo curl procps build-essential -y
 
 # Install Node.js
-curl -fsSL https://deb.nodesource.com/setup_16.x | bash && apt install nodejs -y
+curl -fsSL https://deb.nodesource.com/setup_18.x | bash && apt install nodejs -y
 
 # Install Rustup
 RUSTPUP_PATH=~/.cargo/env
