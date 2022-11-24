@@ -6,7 +6,7 @@ DECISIONS_FILE=./doc/dependency_decisions.yml
 OUTPUT_DIR=./output
 OUTPUT_FILE=$OUTPUT_DIR/license_report.html
 
-report-deps.sh $DECISIONS_FILE $OUTPUT_DIR
+entry report-deps.sh $DECISIONS_FILE $OUTPUT_DIR
 
 STRIP() {
   echo $(cat - | tr -dc '[:alnum:]\n\r' | tr '[:upper:]' '[:lower:]')

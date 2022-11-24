@@ -8,6 +8,8 @@ FROM debian:stable
 
 ENV CI=true
 
+ENV LOAD_ENV=/usr/local/bin/.load_env
+
 COPY features.sh /tmp
 
 COPY install-dependencies.sh /tmp
@@ -31,3 +33,5 @@ RUN mkdir -p TMP_DIR
 
 # Copy executables to bin directory
 COPY workflow /usr/local/bin
+
+COPY entry /usr/local/bin

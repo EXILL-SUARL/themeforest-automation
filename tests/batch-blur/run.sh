@@ -22,7 +22,7 @@ for FILE in `ls $ASSETS_DIR`; do
   ASSETS_SHA1["$(echo $FILE | base64)"]=$SHA1
 done
 
-batch-blur.sh $ASSETS_DIR
+entry batch-blur.sh $ASSETS_DIR
 
 for KEY in "${!ASSETS_SHA1[@]}"; do
   FILE_PATH=$ASSETS_DIR/$(echo $KEY | base64 -d)

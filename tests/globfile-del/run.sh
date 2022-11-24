@@ -2,7 +2,7 @@
 
 set -e
 
-globfile-del.sh ./.ignore
+entry globfile-del.sh ./.ignore
 
 COUNT=$(find . | wc -l)
 

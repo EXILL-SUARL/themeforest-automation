@@ -6,10 +6,6 @@ ORIGINAL_PWD="$PWD"
 
 if [ "$CI" == 'true' ]; then
   TESTS_DIR="/tmp/tests"
-  ENV_FILE=~/.load_env
-  if [ -f "$ENV_FILE" ]; then
-    source $ENV_FILE
-  fi
 else
   TESTS_DIR="$PWD/tests"
 fi
