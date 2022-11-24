@@ -15,7 +15,7 @@ if [ -z "${1}" ]; then
 fi
 
 if [ $CI == 'true' ]; then
-  test -f $ENV_FILE && source $ENV_FILE
+  test -f $LOAD_ENV && source $LOAD_ENV
 fi
 
 WORKFLOW_SCRIPT=$1
