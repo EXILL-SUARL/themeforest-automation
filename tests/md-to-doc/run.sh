@@ -7,7 +7,7 @@ INPUT_DATA=./data.json
 OUTPUT_DIR=./output
 OUTPUT_FILE=$OUTPUT_DIR/template.html
 
-md-to-doc.sh "$(cat $INPUT_DATA)" $INPUT_TEMPLATE $OUTPUT_DIR
+md-to-doc.sh "$(cat $INPUT_DATA)" "$INPUT_TEMPLATE" "$OUTPUT_DIR"
 
 STRINGS_TO_CHECK=('<h1>Demo</h1>' '<p><a href="http://example.org/alice">Alice likes red green yellow </a></p>' '<p><a href="http://example.org/bob">Bob likes orange </a></p>')
 
