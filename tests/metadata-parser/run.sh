@@ -2,7 +2,7 @@
 
 set -e
 
-PARSED_METADATA=$(entry metadata-parser.sh ./item-one.json ./item-two.json ./item-three.json ./sub-dir/item-four.json ./item-two.json)
+PARSED_METADATA=$(metadata-parser.sh ./item-one.json ./item-two.json ./item-three.json ./sub-dir/item-four.json ./item-two.json)
 
 echo $PARSED_METADATA > hi
 

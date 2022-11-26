@@ -34,4 +34,4 @@ RUN mkdir -p TMP_DIR
 # Copy executables to bin directory
 COPY workflow /usr/local/bin
 
-COPY entry /usr/local/bin
+COPY runner /usr/local/bin
