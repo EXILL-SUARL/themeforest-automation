@@ -1,10 +1,20 @@
+ARG LOAD_ENV=/usr/local/bin/.load_env
+
 FROM debian:stable AS development
+
+ARG LOAD_ENV
+
+ENV LOAD_ENV=$LOAD_ENV
 
 # Update package list
 RUN apt update
 
 # Create a layer
 FROM debian:stable
+
+ARG LOAD_ENV
+
+ENV LOAD_ENV=$LOAD_ENV
 
 ENV CI=true
 
@@ -31,3 +41,5 @@ RUN mkdir -p TMP_DIR
 
 # Copy executables to bin directory
 COPY workflow /usr/local/bin
+
+COPY runner /usr/local/bin
