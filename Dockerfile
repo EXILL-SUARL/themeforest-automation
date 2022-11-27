@@ -2,6 +2,8 @@ FROM debian:stable AS development
 
 ENV LOAD_ENV=/usr/local/bin/.load_env
 
+COPY runner /usr/local/bin
+
 # Update package list
 RUN apt update
 
@@ -33,5 +35,3 @@ RUN mkdir -p TMP_DIR
 
 # Copy executables to bin directory
 COPY workflow /usr/local/bin
-
-COPY runner /usr/local/bin
