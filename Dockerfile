@@ -1,6 +1,10 @@
+ARG LOAD_ENV=/usr/local/bin/.load_env
+
 FROM debian:stable AS development
 
-ENV LOAD_ENV=/usr/local/bin/.load_env
+ARG LOAD_ENV
+
+ENV LOAD_ENV=$LOAD_ENV
 
 COPY runner /usr/local/bin
 
@@ -9,6 +13,10 @@ RUN apt update
 
 # Create a layer
 FROM debian:stable
+
+ARG LOAD_ENV
+
+ENV LOAD_ENV=$LOAD_ENV
 
 ENV CI=true
 
