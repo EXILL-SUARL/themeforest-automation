@@ -6,8 +6,6 @@ ARG LOAD_ENV
 
 ENV LOAD_ENV=$LOAD_ENV
 
-COPY runner /usr/local/bin
-
 # Update package list
 RUN apt update
 
@@ -43,3 +41,5 @@ RUN mkdir -p TMP_DIR
 
 # Copy executables to bin directory
 COPY workflow /usr/local/bin
+
+COPY runner /usr/local/bin
