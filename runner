@@ -29,12 +29,12 @@ if [ $1 == 'test' ]; then
     TEST_DIR=$TESTS_DIR/$dir
     if [ -d $TEST_DIR ]; then
       cd $TEST_DIR/assets
-      ../run.sh
+      source ../run.sh
       cd $ORIGINAL_PWD
     fi
   done
 else
   WORKFLOW_SCRIPT=$1
   shift 1
-  runner $WORKFLOW_SCRIPT "$@"
+  source runner $WORKFLOW_SCRIPT "$@"
 fi
