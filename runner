@@ -36,5 +36,5 @@ if [ $1 == 'test' ]; then
 else
   WORKFLOW_SCRIPT=$1
   shift 2
-  /workspaces/themeforest-automation/runner $WORKFLOW_SCRIPT "$@"
+  runner $WORKFLOW_SCRIPT "$@"
 fi

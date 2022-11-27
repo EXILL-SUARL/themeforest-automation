@@ -1,5 +1,7 @@
 FROM debian:stable AS development
 
+ENV LOAD_ENV=/usr/local/bin/.load_env
+
 # Update package list
 RUN apt update
 
@@ -7,8 +9,6 @@ RUN apt update
 FROM debian:stable
 
 ENV CI=true
-
-ENV LOAD_ENV=/usr/local/bin/.load_env
 
 COPY features.sh /tmp
 
