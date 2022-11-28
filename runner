@@ -35,6 +35,6 @@ if [ $1 == 'test' ]; then
   done
 else
   WORKFLOW_SCRIPT=$1
-  shift 1
+  shift 2
   $WORKFLOW_SCRIPT "$@"
 fi
