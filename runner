@@ -23,6 +23,9 @@ else
 fi
 
 if [ $1 == 'test' ]; then
+  if [ "$CI" == 'true' ]; then
+    test -f $LOAD_ENV && source $LOAD_ENV
+  fi
   for dir in `ls $TESTS_DIR`; do
     TEST_DIR=$TESTS_DIR/$dir
     if [ -d $TEST_DIR ]; then
