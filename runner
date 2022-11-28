@@ -14,8 +14,6 @@ if [ -z "${1}" ]; then
   exit 1;
 fi
 
-test -f $LOAD_ENV && source $LOAD_ENV
-
 ORIGINAL_PWD="$PWD"
 
 if [ "$CI" == 'true' ]; then
