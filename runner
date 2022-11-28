@@ -36,5 +36,5 @@ if [ $1 == 'test' ]; then
 else
   WORKFLOW_SCRIPT=$1
   shift 1
-  source runner $WORKFLOW_SCRIPT "$@"
+  source $WORKFLOW_SCRIPT "$@"
 fi
