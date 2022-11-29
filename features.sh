@@ -18,7 +18,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 source $RUSTPUP_PATH
 
-echo 'export PATH=/root/.cargo/bin:$PATH' >> $LOAD_ENV
+echo "source $RUSTPUP_PATH" >> $LOAD_ENV
 
 # Install Ruby
 RUBY_PATH=/usr/local/rvm/scripts/rvm
