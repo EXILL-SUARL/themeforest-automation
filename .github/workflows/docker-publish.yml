@@ -63,7 +63,7 @@ jobs:
           tags: ${{ github.event.repository.name }}
           labels: ${{ steps.meta.outputs.labels }}
       - name: Test
-        run: docker run --env CI=true --name ${{ github.event.repository.name }} ${{ github.event.repository.name }} /tmp/tests/run.sh
+        run: docker run --env CI=true --name ${{ github.event.repository.name }} ${{ github.event.repository.name }} runner test
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
