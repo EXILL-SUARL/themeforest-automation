@@ -10,6 +10,20 @@ It is mainly utilized by [GitHub Actions](https://docs.github.com/en/actions) de
 
 The image can be found at GitHub's Container Registry: https://github.com/orgs/EXILL-SUARL/packages/container/package/themeforest-automation.
 
+## Usage
+
+Run a workflow:
+
+```
+$ runner <workflow_name> [arguments]
+```
+
+Run tests:
+
+```
+$ runner test
+```
+
 ## Usage with Github Actions
 
 ```yaml
