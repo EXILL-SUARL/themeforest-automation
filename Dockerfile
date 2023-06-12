@@ -1,6 +1,6 @@
 ARG LOAD_ENV=/usr/local/bin/.load_env
 
-FROM debian:stable AS development
+FROM debian:bullseye AS development
 
 ARG LOAD_ENV
 
@@ -10,7 +10,7 @@ ENV LOAD_ENV=$LOAD_ENV
 RUN apt update
 
 # Create a layer
-FROM debian:stable
+FROM debian:bullseye
 
 ARG LOAD_ENV
 
