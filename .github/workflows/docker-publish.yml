@@ -56,7 +56,7 @@ jobs:
             type=semver,enable=${{ steps.chosen-tag.outputs.tag != 'master' }},pattern=v{{major}}.{{minor}},value=${{ steps.chosen-tag.outputs.tag }}
       - name: Build and export to Docker
         id: build-and-export
-        uses: docker/build-push-action@44ea916f6c540f9302d50c2b1e5a8dc071f15cdf
+        uses: docker/build-push-action@2eb1c1961a95fc15694676618e422e8ba1d63825
         with:
           context: .
           load: true
@@ -65,7 +65,7 @@ jobs:
       - name: Test
         run: docker run --env CI=true --name ${{ github.event.repository.name }} ${{ github.event.repository.name }} runner test
       - name: Build and push
-        uses: docker/build-push-action@44ea916f6c540f9302d50c2b1e5a8dc071f15cdf
+        uses: docker/build-push-action@2eb1c1961a95fc15694676618e422e8ba1d63825
         with:
           context: .
           platforms: linux/amd64
