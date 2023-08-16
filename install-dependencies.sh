@@ -18,4 +18,4 @@ cargo install --git https://github.com/chevdor/tera-cli
 gem install license_finder
 
 # Install packages
-sudo apt install sudo jq curl zip imagemagick pandoc -y
+sudo apt install sudo jq curl zip imagemagick pandoc ffmpeg -y
