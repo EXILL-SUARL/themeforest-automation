@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Mass blur all images in the specified directory.
+# Mass blur all images/videos in the specified directory.
 
 set -e
 
@@ -21,3 +21,11 @@ if [ ! -d "$1" ]; then
 fi
 
 find "$1" -iregex '.*\.\(jpg\|gif\|ico\|png\|jpeg\|webp\)$' -type f -exec convert -blur 0x20 {} {} \;
+
+find "$1" -iregex '.*\.\(mp4\|webm\|mov\|m4v\|mkv\)' -type f -exec sh -c '
+  filepath="{}"
+  appended_string="_blurred.temp.${filepath##*.}"
+  output="${filepath%.*}$appended_string"
+  ffmpeg -y -i "$filepath" -vf "gblur=sigma=50" -c:a copy "$output"
+  mv "$output" "$filepath"
+' \;
