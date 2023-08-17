@@ -17,7 +17,7 @@ STRINGS_TO_CHECK=('10 total' '9 MIT' '1 BSD Zero Clause License' 'MIT manually a
 PANDOC_STDOUT="$(pandoc --from html --to plain "$OUTPUT_FILE")"
 
 for STRING in "${STRINGS_TO_CHECK[@]}"; do
-  if ! grep -q "$(echo "$STRING" | STRIP)" <<< "$(echo "$PANDOC_STDOUT" | STRIP)" ; then
+  if ! grep -q "$(echo $STRING | STRIP)" <<< "$(echo $PANDOC_STDOUT | STRIP)" ; then
     printf '%s\n' "Test for report-deps.sh has failed. /n Could not find string: $STRING." >&2
     exit 1;
   fi
