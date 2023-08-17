@@ -16,7 +16,7 @@ SLUGIFY() {
   echo "$(cat - | iconv -t ascii//TRANSLIT | sed -r s/[^a-zA-Z0-9]+/-/g | sed -r s/^-+\|-+$//g | tr A-Z a-z)"
 }
 
-for FILE in "$(ls "$ASSETS_DIR")"; do
+for FILE in `ls $ASSETS_DIR`; do
   FILE_PATH="$ASSETS_DIR/$FILE"
   SHA1=$(sha256sum "$FILE_PATH" | GET_SHA256)
   ASSETS_SHA1["$(echo "$FILE" | base64)"]=$SHA1
