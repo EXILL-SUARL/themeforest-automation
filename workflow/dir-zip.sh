@@ -15,7 +15,7 @@ if [[ -z "$1" || -z "$2" || -z "$3" ]]; then
 fi
 
 if [ ! -d "$2" ]; then
-  mkdir -p $2
+  mkdir -p "$2"
 fi
 
 zip -r "$2/$3" "$1"
