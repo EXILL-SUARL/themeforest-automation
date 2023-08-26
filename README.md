@@ -101,7 +101,7 @@ jobs:
       - name: Ignore files # Delete every file/directory that matches the defined glob paths in .itemignore
         run: runner globfile-del.sh ./.itemignore
       - name: ZIP the CWD # Export the current working directory as a ZIP
-        run: runner dir-zip.sh . ${{ needs.prepare.outputs.STRIPPED_ZIP_DIR }} ${{ needs.prepare.outputs.STRIPPED_ZIP_NAME }}
+        run: runner package.sh . ${{ needs.prepare.outputs.STRIPPED_ZIP_DIR }} ${{ needs.prepare.outputs.STRIPPED_ZIP_NAME }}
       - name: upload stripped item artifact # Upload for later delivery (as a ZIP file)
         uses: actions/upload-artifact@v3
         with:
