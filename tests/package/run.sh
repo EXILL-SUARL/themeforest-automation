@@ -8,8 +8,10 @@ OUTPUT_NAME="package.zip"
 OUTPUT_PATH="$TARGET/$OUTPUT_NAME"
 PARENT_DIR="package-test"
 TO_SEPERATE="dir"
+SEPERATED_DIR_NAME="renamed_dir"
+CONTAINER_DIR="content"
 
-package.sh "$SOURCE" "$TARGET" "$OUTPUT_NAME" "$PARENT_DIR" "$TO_SEPERATE"
+package.sh "$SOURCE" "$TARGET" "$OUTPUT_NAME" "$PARENT_DIR" "$TO_SEPERATE" "$SEPERATED_DIR_NAME" "$CONTAINER_DIR"
 
 if [ ! -e "$OUTPUT_PATH" ]; then
   printf '%s\n' "Output existence test for package.sh has failed." >&2
@@ -19,29 +21,32 @@ fi
 TMP_DIR=$(mktemp -d)
 unzip "$OUTPUT_PATH" -d "$TMP_DIR"
 
-# Compare the extracted directory with the content directory
-diff -r "$TARGET/content" "$TMP_DIR" || DIFF_EXIT_CODE=$?
+# Compare the extracted parent directory with the container parent directory
+diff -r "$TARGET/$CONTAINER_DIR/$PARENT_DIR" "$TMP_DIR/$PARENT_DIR" || PARENT_DIR_DIFF_EXIT_CODE=$?
 
 # Check if the diff command produced any output
-if [[ $DIFF_EXIT_CODE -ne 0 ]]; then
-  printf '%s\n' "Directory comparison test has failed. The extracted directory is not identical to the content." >&2
+if [[ $PARENT_DIR_DIFF_EXIT_CODE -ne 0 ]]; then
+  printf '%s\n' "Parent directory comparison test has failed. The extracted directory is not identical to the container." >&2
   exit 1;
 fi
 
-# Check if the content exists and contains a folder named the $PARENT_DIR
-if [ ! -d "$TARGET/content/$PARENT_DIR" ]; then
-  printf '%s\n' "Directory existence test for "$TARGET/content/$PARENT_DIR" has failed." >&2
+# Compare the extracted seperate directory with the container seperate directory
+diff -r "$TARGET/$CONTAINER_DIR/$SEPERATED_DIR_NAME" "$TMP_DIR/$SEPERATED_DIR_NAME" || SEPERATE_DIR_DIFF_EXIT_CODE=$?
+
+# Check if the diff command produced any output
+if [[ $SEPERATE_DIR_DIFF_EXIT_CODE -ne 0 ]]; then
+  printf '%s\n' "Seperate directory comparison test has failed. The extracted directory is not identical to the container." >&2
   exit 1;
 fi
 
-# Check if $PARENT_DIR does not contain a file or folder named $TO_SEPERATE
-if [ -e "$TARGET/content/$PARENT_DIR/$TO_SEPERATE" ] || [ -d "$TARGET/content/$PARENT_DIR/$TO_SEPERATE" ]; then
-  printf '%s\n' "File or directory existence test for "$TARGET/content/$PARENT_DIR/$TO_SEPERATE" has failed." >&2
+# Check if the container exists and contains a folder named the $PARENT_DIR
+if [ ! -d "$TARGET/$CONTAINER_DIR/$PARENT_DIR" ]; then
+  printf '%s\n' "Directory existence test for "$TARGET/$CONTAINER_DIR/$PARENT_DIR" has failed." >&2
   exit 1;
 fi
 
-# Check if the content does contain a file or folder named $TO_SEPERATE
-if [ ! -e "$TARGET/content/$TO_SEPERATE" ] || [ ! -d "$TARGET/content/$TO_SEPERATE" ]; then
-  printf '%s\n' "File or directory inexistence test for "$TARGET/content/$PARENT_DIR/$TO_SEPERATE" has failed." >&2
+# Check if the container does contain a file or folder named $TO_SEPERATE
+if [ ! -e "$TARGET/$CONTAINER_DIR/$SEPERATED_DIR_NAME" ] || [ ! -d "$TARGET/$CONTAINER_DIR/$SEPERATED_DIR_NAME" ]; then
+  printf '%s\n' "File or directory inexistence test for "$TARGET/$CONTAINER_DIR/$SEPERATED_DIR_NAME" has failed." >&2
   exit 1;
 fi
